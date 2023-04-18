@@ -1,3 +1,4 @@
+require 'set'
 # We are going to find the most influential people in the in-it network.
 # Each user in in-it follows a group of zero or more people.
 # The list of "followings" are given to us as an array of pairs. Each pair is
@@ -193,6 +194,7 @@ outputs = [
   ["user10", "user12"],
   ["user16"], ["user14"]
 ]
+
 score = 0
 inputs.each_with_index do |input, index|
   expected_output = outputs[index]
