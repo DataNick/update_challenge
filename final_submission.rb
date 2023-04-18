@@ -65,9 +65,9 @@ def grab_indirect_followers(hash, name, collection)
     if !collection.include?(f) && !hash[f].nil?
       collection | hash[f]
     end
-    collection = (collection | grab_indirect_followers(hash, f, collection)).uniq
+    collection = (collection | grab_indirect_followers(hash, f, collection))
   end
-  collection = collection.uniq.filter{|n| n != name}
+  collection = collection.filter{|n| n != name}
 end
 
 
