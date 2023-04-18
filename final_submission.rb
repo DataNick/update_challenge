@@ -60,17 +60,10 @@ def grab_indirect_followers(hash, name, collection)
   collection = collection | hash[name]
   followers = hash[name]
   followers.each do |f|
-    if !collection.include?(f)
-      collection << f
-    end
-    if !hash[f].nil?
-      collection | hash[f]
-    end
     collection = (collection | grab_indirect_followers(hash, f, collection))
   end
   collection = collection.filter{|n| n != name}
 end
-
 
 def build_initial_lookup(arr)
   social_lookup = Hash.new
