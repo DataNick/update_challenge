@@ -63,7 +63,7 @@ def grab_indirect_followers(hash, name, collection)
     if !collection.include?(f)
       collection << f
     end
-    if !collection.include?(f) && !hash[f].nil?
+    if !hash[f].nil?
       collection | hash[f]
     end
     collection = (collection | grab_indirect_followers(hash, f, collection))
